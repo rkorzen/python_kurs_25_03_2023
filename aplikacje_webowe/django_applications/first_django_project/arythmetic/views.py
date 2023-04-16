@@ -9,4 +9,14 @@ def calculator(request, op, a, b):
 
     result = operations[op](a, b)
 
-    return HttpResponse(f"{result}")
+    return render(
+        request,
+        "arythmetic/main.html",
+        {"result": result}
+    )
+
+# /maths/cwiczenie/
+def cwiczenie_4(request):
+    # utwórz liste liczb i przekaż do szablonu
+    # w szablonie w pętli wypisz te liczby - każda w osobnej linii
+    pass

@@ -5,8 +5,45 @@
   <title>Title</title>
 </head>
 <body>
+Aplikacja MAIN<br>
+{{ text }}<br>
+{{ imiona}}<br>
+{{ imiona.0 }}<br>
+{{ imiona.1 }}<br>
+{{ slownik }}<br>
+{{ slownik.ala }}<br>
+{{ slownik.keys }}<br>
 
-{{ text }}
+{% if text %}
+text: {{ text }}
+{% else %}
+brak tekstu
+{% endif %}
+<hr>
+{% if text1 %}
+text: {{ text1 }}
+{% else %}
+brak tekstu
+{% endif %}
+<hr>
+{% if slownik.ala == "pies" %}
+Ala ma psa
+{% else %}
+Ala ma kota
+{% endif %}
+
+<hr>
+
+pętle
+
+{% for el in imiona %}
+  {{ el }}<br>
+{% endfor %}
+
+{% for k, v in slownik.items %}
+  {{ k }} - {{ v }}<br>
+{% endfor %}
+
 
 </body>
 </html>

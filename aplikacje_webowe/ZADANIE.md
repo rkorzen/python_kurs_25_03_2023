@@ -28,3 +28,8 @@ BONJORNO Pablo
 /maths/sub/1/2/
 
 -1
+
+# zad 3
+
+Użyj render do wyrenderowania szablony dla obliczeń
+

@@ -24,5 +24,5 @@ urlpatterns = [
     # path("", cos),
     path("admin/", admin.site.urls),
     path("", include("main.urls")),
-    path("", include("innaaplikacja.urls")),
+    path("", include("arythmetic.urls")),
 ]

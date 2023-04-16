@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+
+
+{% if wynik %}
+{{ wynik }}
+{% else %}
+<form method="POST">
+  {% csrf_token %}
+  <input type="number" name="a">
+  <input type="number" name="b">
+  <input type="submit" value="sumuj">
+</form>
+{% endif %}
+</body>
+</html>

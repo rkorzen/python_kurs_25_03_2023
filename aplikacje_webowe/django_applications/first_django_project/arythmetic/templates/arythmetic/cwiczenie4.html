@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+{% for liczba in liczby %}
+  {% if liczba|divisibleby:"2" %}
+    {% if liczba < 10 %}
+      0{{liczba}}
+    {% else %}
+      {{ liczba }}
+    {% endif %}
+    <br>
+  {% endif %}
+{% endfor %}
+
+</body>
+</html>

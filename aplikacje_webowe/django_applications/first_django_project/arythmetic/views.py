@@ -19,4 +19,25 @@ def calculator(request, op, a, b):
 def cwiczenie_4(request):
     # utwórz liste liczb i przekaż do szablonu
     # w szablonie w pętli wypisz te liczby - każda w osobnej linii
-    pass
+    return render(
+        request,
+        "arythmetic/cwiczenie4.html",
+        {"liczby": list(range(40))}
+    )
+
+
+def kalkulator_v2(request):
+    # przyjmie dane z formularza
+
+    a = request.POST.get("a")
+    b = request.POST.get("b")
+
+
+    if a and b:
+        a, b = int(a), int(b)
+        wynik = a + b
+    else:
+        wynik = ""
+
+
+    return render(request, "arythmetic/k2.html", {"wynik": wynik})

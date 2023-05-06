@@ -84,3 +84,10 @@ workspace
 * utwórz kilka książek
 
    book = Book(..., author=author)
+
+## zadanie - dane
+
+1. W aplikacji library utwórz moduł utils, który będzie zawierał funkcję, która będzie pobierała dane z pliku
+<projekt>/data/authors.csv
+2. Na podstawie danych utwórz instancje modelu Author
+3. Powtórz to dla książek - books.csv i model Book

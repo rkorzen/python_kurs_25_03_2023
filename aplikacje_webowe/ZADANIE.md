@@ -99,3 +99,17 @@ workspace
     >>> from library.utils import search_books
     >>> search_books('Pan Tadeusz')
     Tytuł: Pan Tadeusz, Autor: Adam Mickiewicz
+
+
+
+## zadanie - połączenie widoków, szablonów i modeli.
+
+1. Utwórz widok, który będzie wyświetlał listę książek
+2. Utwórz szablon, który będzie wyświetlał listę książek
+3. Utwórz widok, który będzie wyświetlał listę autorów
+4. Utórz szablon, który będzie wyświetlał listę autorów
+5. Utwórz widok, który będzie wyświetlał szczegóły książki
+6. Utwórz szablon, który będzie wyświetlał szczegóły książki
+7. Utwórz widok, który będzie wyświetlał szczegóły autora wraz z listą jego książek
+
+8. Utwórz prosty formularz do wyszukiwania książek po tytule

@@ -47,3 +47,10 @@ def import_books():
         for row in reader:
             data = prepare_book_data(row)
             create_book(data)
+
+
+def search_books(q: str):
+    books = Book.objects.filter(title__icontains=q)
+
+    for book in books:
+        print(f"Tytuł: {book.title}, Author: {book.author.name} {book.author.surname}")

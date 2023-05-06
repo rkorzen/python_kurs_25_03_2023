@@ -5,7 +5,7 @@ from django.db import models
 
 class Book(models.Model):
     title = models.CharField(max_length=128)
-    author = models.ForeignKey("library.Author", on_delete=models.CASCADE)
+    author = models.ForeignKey("library.Author", on_delete=models.CASCADE, related_name="books")
     year = models.IntegerField()
     pages = models.IntegerField()
     price = models.DecimalField(max_digits=6, decimal_places=2)

@@ -4,7 +4,7 @@ from django.http import HttpResponse
 from .kalkulator import operations
 
 
-
+# /maths/add/1/2/
 def calculator(request, op, a, b):
 
     result = operations[op](a, b)

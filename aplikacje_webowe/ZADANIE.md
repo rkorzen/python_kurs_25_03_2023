@@ -68,3 +68,19 @@ workspace
 2. nowa aplikacja - waluty
 3. widok umożliwiajacy przeliczenie wartości waluty - chcemy kupi jakaś walutę ile musimy zapłaci PLN ?
 4. dane z API NBP
+
+
+## Zadanie - modele
+
+* Utwórz aplikację Django o nazwie "Library".
+* Stwórz dwa modele: "Author" oraz "Book". Model "Author" będzie zawierał informacje o autorze książki, a model "Book" będzie zawierał informacje o książce, takie jak tytuł, opis, datę publikacji oraz informację o autorze.
+
+   class Book:
+      ...
+      author = models.ForeignKey(Author, on_delete=models.CASCADE)
+      ...
+* przygotuj i wykonaj migracje
+* utwórz kilku autorów
+* utwórz kilka książek
+
+   book = Book(..., author=author)

@@ -91,3 +91,11 @@ workspace
 <projekt>/data/authors.csv
 2. Na podstawie danych utwórz instancje modelu Author
 3. Powtórz to dla książek - books.csv i model Book
+4. Napisz funkcjonalnoś, która zapewni:
+   - wyszukiwanie książek po tytule 
+   - wypisanie znalezionych książek w formacie "Tytuł: [tytuł], Autor: [imię] [nazwisko]"
+
+    $ python manage.py shell
+    >>> from library.utils import search_books
+    >>> search_books('Pan Tadeusz')
+    Tytuł: Pan Tadeusz, Autor: Adam Mickiewicz

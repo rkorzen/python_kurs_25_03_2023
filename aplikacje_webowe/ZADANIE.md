@@ -149,7 +149,23 @@ Oto propozycja ćwiczenia związana z napisaniem aplikacji Django typu blog:
 
 4. Zdefiniuj model `Comment` z polami takimi jak: `author` (autor komentarza - relacja do auth.User), 
    `content` (treść komentarza), `created_at` (data utworzenia komentarza) i klucz obcy `post` (do którego postu należy dany komentarz).
-5. Stwórz widok `post_list`, który będzie wyświetlał listę wszystkich postów wraz z ich tytułami, autorami i datami utworzenia.
+5. Stwórz widok `post_list`, który będzie wyświetlał listę wszystkich postów wraz z ich tytułami, autorami i datami utworzenia. 
+6. Stwórz szablon do wyświetlania listy postów- 'posts/post_list.html'.
+
+struktura projektu:
+```
+    manage.py
+    blog
+        settings.py
+    posts
+        models.py
+        views.py
+        urls.py
+        templates
+            posts
+                post_list.html
+                post_detail.html
+```
 6. Stwórz widok `post_detail`, który będzie wyświetlał szczegóły danego postu, wraz z jego tytułem, autorem, treścią i datą utworzenia. 
 7. Utwórz 100 postów (przy pomocy faktera - mozna doda polecenie command)
 8. Utwórz stronicowanie dla listy postów

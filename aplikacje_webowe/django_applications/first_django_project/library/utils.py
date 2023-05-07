@@ -1,9 +1,10 @@
 import csv
+from typing import List
+
+from faker import Faker
 
 from library.models import Author, Book
-import os
 
-print(os.getcwd())
 
 def hello_django():
     print("Hello Django!")
@@ -54,3 +55,29 @@ def search_books(q: str):
 
     for book in books:
         print(f"Tytuł: {book.title}, Author: {book.author.name} {book.author.surname}")
+
+
+def generate_fake_authors(n: int) -> List[Author]:
+    fake = Faker("pl_PL")
+    authors = []
+    for _ in range(n):
+        b_year = fake.random_int(min=1900, max=2020)
+        years_of_life = fake.random_int(min=0, max=120)
+        row = [fake.first_name(), fake.last_name(), b_year, b_year + years_of_life]
+        authors.append(create_author(row))
+    return authors
+
+def generate_fake_books(n: int) -> List[Book]:
+    fake = Faker("pl_PL")
+    authors = Author.objects.all()
+    books = []
+    for _ in range(n):
+        author = fake.random_element(elements=authors)
+        row = {
+            "title": fake.text(max_nb_chars=50),
+            "author": author,
+            "year": fake.random_int(min=1900, max=2020),
+            "pages": fake.random_int(min=10, max=1000),
+            "price": fake.random_int(min=10, max=1000),
+        }
+        books.append(create_book(row))

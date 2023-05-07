@@ -116,3 +116,5 @@ workspace
 
 ## zadanie - funcja do generowania fakeowych ksiażek i autorów
 Dwie funkcje. Tworząc książkę wybieraj autora z istniejących autorów
+
+## zadanie - odanie komendy manage.py do dodawania fakeowych ksiażek i autorów

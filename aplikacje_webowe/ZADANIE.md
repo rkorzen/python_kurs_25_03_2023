@@ -117,4 +117,11 @@ workspace
 ## zadanie - funcja do generowania fakeowych ksiażek i autorów
 Dwie funkcje. Tworząc książkę wybieraj autora z istniejących autorów
 
-## zadanie - odanie komendy manage.py do dodawania fakeowych ksiażek i autorów
+## zadanie - dodanie komendy manage.py do dodawania fakeowych ksiażek i autorów
+
+## zadanie - paginator
+
+w oparciu o https://docs.djangoproject.com/en/4.2/topics/pagination/
+
+1. tworzymy paginator w widoku listy książek i listy autorów - przekazujemy do szablonu page_obj
+2. zmieniamy szablon by wyświetlał obiekty przekazane jako page_obj

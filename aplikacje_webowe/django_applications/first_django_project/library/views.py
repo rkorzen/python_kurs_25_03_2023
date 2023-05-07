@@ -7,6 +7,8 @@ from library.models import Author, Book
 def authors_list(request):
 
     q = request.GET.get("q")
+    page_number = request.GET.get("page", 1)
+    objects_per_page = request.GET.get("per_page", 10)
 
     if not q:
         authors = Author.objects.all()

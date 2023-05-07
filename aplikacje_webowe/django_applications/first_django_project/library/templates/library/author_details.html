@@ -1,0 +1,34 @@
+{% extends 'base.html' %}
+
+{% block title %}Szczegóły autora{% endblock %}
+
+{% block content %}
+<h1>Szczegóły autora</h1>
+<table>
+  <tr>
+    <td>Imię</td>
+    <td>{{ author.name }}</td>
+  </tr>
+    <tr>
+    <td>Nazwisko</td>
+    <td>{{ author.surname }}</td>
+  </tr>
+  <tr>
+    <td>Rok urodzenia</td>
+    <td>{{ author.birth_year }}</td>
+  </tr>
+  <tr>
+    <td>Rok śmierci</td>
+    <td>{% if author.death_year %}{{ author.death_year }}{% endif %}</td>
+  </tr>
+</table>
+
+<h2>Książki</h2>
+<ul>
+  {% for book in author.books.all %}
+    <li><a href="{% url 'book_details' book.id %}">{{ book }}</a></li>
+  {% endfor %}
+</ul>
+
+<a href="{% url 'authors_list' %}">Powrót do listy autorów</a>
+{% endblock %}

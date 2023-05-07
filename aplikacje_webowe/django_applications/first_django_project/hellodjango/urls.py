@@ -25,4 +25,5 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("", include("main.urls")),
     path("", include("arythmetic.urls")),
+    path("", include("library.urls")),
 ]

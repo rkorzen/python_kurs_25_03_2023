@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block title %}Szczegóły książki{% endblock %}
+
+{% block content %}
+<h1>Szczegóły książki</h1>
+
+<table>
+  <tr>
+    <td>Tytuł</td>
+    <td>{{ book.title }}</td>
+  </tr>
+    <tr>
+    <td>Autor</td>
+    <td>{{ book.author }}</td>
+  </tr>
+  <tr>
+    <td>Rok wydania</td>
+    <td>{{ book.year }}</td>
+  </tr>
+  <tr>
+    <td>ilośc stron</td>
+    <td>{{ book.pages }}</td>
+  </tr>
+</table>
+<a href="{% url 'books_list' %}">Powrót do listy ksiażek</a>
+{% endblock %}

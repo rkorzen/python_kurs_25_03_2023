@@ -8,5 +8,7 @@
 {% for book in books %}
   <p><a href="{% url 'book_details' book.id %}">{{ book }}</a></p>
 {% endfor %}
+
+{% include 'library/_pagination.html' %}
 {% endblock %}
 

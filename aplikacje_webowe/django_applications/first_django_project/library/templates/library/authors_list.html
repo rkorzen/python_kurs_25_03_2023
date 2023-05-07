@@ -7,10 +7,11 @@
 {% include 'library/_search_form.html' %}
 <h1>Lista autorów</h1>
 
-{% for author in authors %}
+{% for author in page_obj %}
   <p><a href="{% url 'author_details' author.id %}">{{ author }}</a></p>
 
 {% endfor %}
+{% include 'library/_pagination.html' %}
 
 {% endblock %}
 

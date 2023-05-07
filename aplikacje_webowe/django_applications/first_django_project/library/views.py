@@ -1,7 +1,7 @@
 from django.shortcuts import render
 from django.db.models import Q
 from library.models import Author, Book
-
+from django.core.paginator import Paginator
 
 # Create your views here.
 def authors_list(request):
@@ -15,7 +15,13 @@ def authors_list(request):
     else:
         authors = Author.objects.filter(Q(name__icontains=q) | Q(surname__icontains=q))
 
-    return render(request, "library/authors_list.html", {"authors": authors})
+    p = Paginator(authors, objects_per_page)
+    page_obj = p.get_page(page_number)
+    return render(
+        request,
+        "library/authors_list.html",
+        {"page_obj": page_obj, "per_page": objects_per_page}
+    )
 
 def author_details(request, id):
     author = Author.objects.get(id=id)

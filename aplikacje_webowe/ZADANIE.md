@@ -113,3 +113,6 @@ workspace
 7. Utwórz widok, który będzie wyświetlał szczegóły autora wraz z listą jego książek
 
 8. Utwórz prosty formularz do wyszukiwania książek po tytule
+
+## zadanie - funcja do generowania fakeowych ksiażek i autorów
+Dwie funkcje. Tworząc książkę wybieraj autora z istniejących autorów

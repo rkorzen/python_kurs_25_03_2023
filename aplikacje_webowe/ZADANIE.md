@@ -125,3 +125,31 @@ w oparciu o https://docs.djangoproject.com/en/4.2/topics/pagination/
 
 1. tworzymy paginator w widoku listy książek i listy autorów - przekazujemy do szablonu page_obj
 2. zmieniamy szablon by wyświetlał obiekty przekazane jako page_obj
+
+## zadanie - blog
+
+
+Oto propozycja ćwiczenia związana z napisaniem aplikacji Django typu blog:
+
+1. Stwórz nowy projekt Django o nazwie "blog". 
+   `django-admin startproject blog`
+2. Dodaj aplikację o nazwie "posts", która będzie zawierała modele `Post` i `Comment`. 
+   `python manage.py startapp posts`
+3. Dodaj aplikację do listy zainstalowanych aplikacji w pliku `settings.py`.
+4. Zdefiniuj model `Post` z polami takimi jak: 
+   `title` (tytuł postu), `author` (autor postu - relacja), `content` (treść postu), `created_at` (data utworzenia postu).
+
+```python
+    class Post(models.Model):
+        title = models.CharField(max_length=255)
+        content = models.TextField()
+        created_at = models.DateTimeField(auto_now_add=True)
+        author = models.ForeignKey('auth.User', on_delete=models.CASCADE)    
+```
+
+4. Zdefiniuj model `Comment` z polami takimi jak: `author` (autor komentarza - relacja do auth.User), 
+   `content` (treść komentarza), `created_at` (data utworzenia komentarza) i klucz obcy `post` (do którego postu należy dany komentarz).
+5. Stwórz widok `post_list`, który będzie wyświetlał listę wszystkich postów wraz z ich tytułami, autorami i datami utworzenia.
+6. Stwórz widok `post_detail`, który będzie wyświetlał szczegóły danego postu, wraz z jego tytułem, autorem, treścią i datą utworzenia. 
+7. Utwórz 100 postów (przy pomocy faktera - mozna doda polecenie command)
+8. Utwórz stronicowanie dla listy postów

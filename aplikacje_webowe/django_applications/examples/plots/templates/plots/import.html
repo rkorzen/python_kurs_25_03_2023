@@ -13,5 +13,11 @@
   <input type="file" name="file">
   <input type="submit" value="Importuj">
 </form>
+<div>
+  {% if plot_div %}
+    {{ plot_div|safe }}
+  {% endif %}
+  
+</div>
 </body>
 </html>

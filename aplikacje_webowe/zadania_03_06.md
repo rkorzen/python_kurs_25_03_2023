@@ -19,3 +19,13 @@
 ## zadanie 2
 
 Doda miniaturki obrazków w liście 
+
+## Zadanie 3
+
+Import danych z pliku CSV i zrobienie wykresów
+
+## Zadanie 4
+
+Utwórz model do którego możesz zaimportowa dane z pliku csv
+Pola to: rok, miesiac, wartosc, data_importu
+

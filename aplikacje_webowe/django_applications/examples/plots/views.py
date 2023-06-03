@@ -69,6 +69,8 @@ def prepare_plot(data):
     plot_div = plot(fig, output_type='div')
     return plot_div
 
+def prepare_agregated_plot(series):
+    pass
 
 
 
@@ -101,11 +103,12 @@ def get_data_from_db(import_date):
         series[rok]["y"].append(wartosc)
     return series
 
+
 def simple_import_details(request, import_date):
     series = get_data_from_db(import_date)
     plot_div = prepare_plot(series)
-
-    context = {"plot_div": plot_div}
+    agregated_plot_div = prepare_agregated_plot(series)
+    context = {"plot_div": plot_div, "agregated_plot_div": agregated_plot_div}
     return render(
         request,
         "plots/import.html",

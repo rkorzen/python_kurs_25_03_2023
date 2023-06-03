@@ -70,9 +70,15 @@ def prepare_plot(data):
     return plot_div
 
 def prepare_agregated_plot(series):
-    pass
-
-
+    aggregated_data = {"x": [], "y": []}
+    for rok, values in series.items():
+        aggregated_data["x"].append(rok)
+        aggregated_data["y"].append(sum(values["y"]))
+    fig = go.Figure()
+    fig.add_trace(go.Bar(x=aggregated_data["x"], y=aggregated_data["y"], name="agregated"))
+    fig.update_layout(title="Zagregowane dane", xaxis_title="Lata", yaxis_title="suma")
+    plot_div = plot(fig, output_type='div')
+    return plot_div
 
 def simple_import(request):
     context = {}

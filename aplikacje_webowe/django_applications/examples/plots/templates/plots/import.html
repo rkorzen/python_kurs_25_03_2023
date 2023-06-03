@@ -14,9 +14,11 @@
   <input type="submit" value="Importuj">
 </form>
 <div>
-  {% if plot_div %}
-    {{ plot_div|safe }}
-  {% endif %}
+  {% for import in imports %}
+    <p><a href="{% url 'plots:simpleimport_details' import %}">{{ import }}</a></p>
+  {% endfor %}
+  
+  {{ plot_div|safe }}
   
 </div>
 </body>

@@ -1,8 +1,15 @@
 import csv
+from datetime import datetime
+
+from django.utils import timezone
 
 from django.shortcuts import render
 import plotly.graph_objects as go
 from plotly.offline import plot
+
+from plots.models import Data
+
+
 # Create your views here.
 
 def simple_plot(request):
@@ -39,6 +46,20 @@ def prepare_data(csv_file):
     return dane
 
 
+def import_data_to_model(csv_file):
+    decoded_file = csv_file.read().decode("utf-8").splitlines()
+    csvreader = csv.DictReader(decoded_file, delimiter=";")
+    data_importu = timezone.now()
+    objects = []
+    for row in csvreader:
+        r =int(row["rok"])
+        m = int(row["miesiac"])
+        w = float(row["wartosc"].replace(",", "."))
+        objects.append(Data(rok=r, miesiac=m, wartosc=w, data_importu=data_importu))
+    Data.objects.bulk_create(objects)
+
+
+
 def prepare_plot(data):
     fig = go.Figure()
     for rok in data:
@@ -49,20 +70,42 @@ def prepare_plot(data):
     return plot_div
 
 
-def simple_import(request):
 
+
+def simple_import(request):
+    context = {}
     if request.method == "POST":
         csv_file = request.FILES["file"]
-        dane = prepare_data(csv_file)
-        plot_div = prepare_plot(dane)
-        context = {"plot_div": plot_div}
+        import_data_to_model(csv_file)
 
-    else:
-        print(request.GET)
-        print("GET")
-        context = {}
+    imports = Data.objects.values_list("data_importu", flat=True).distinct()
+    context["imports"] = imports
+    return render(
+        request,
+        "plots/import.html",
+        context
+    )
 
+def get_data_from_db(import_date):
+    data = Data.objects.filter(data_importu=import_date)
+    series = {}
+    for item in data:
+        rok = item.rok
+        miesiac = item.miesiac
+        wartosc = item.wartosc
 
+        if rok not in series:
+            series[rok] = {"x": [], "y": []}
+
+        series[rok]["x"].append(miesiac)
+        series[rok]["y"].append(wartosc)
+    return series
+
+def simple_import_details(request, import_date):
+    series = get_data_from_db(import_date)
+    plot_div = prepare_plot(series)
+
+    context = {"plot_div": plot_div}
     return render(
         request,
         "plots/import.html",

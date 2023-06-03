@@ -16,3 +16,6 @@
 - Dodaj model do panelu admina
 - Sprawdź czy dodany obrazek się wyświetla (po utworzeniu książki w panelu admina)
 
+## zadanie 2
+
+Doda miniaturki obrazków w liście 

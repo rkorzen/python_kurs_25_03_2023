@@ -1,0 +1,17 @@
+{% extends "books/base.html" %}
+{% load thumbnail %}
+
+{% block content %}
+  <h2>{{ book.title }}</h2>
+  <p>{{ book.author }}</p>
+  <p>{{ book.description }}</p>
+  <p><img src="{{ book.cover_image.url }}" width="400px"></p>
+
+<p>
+  
+  {% thumbnail book.cover_image "400" as im %}
+    <img src="{{ im.url }}">
+  {% endthumbnail %}
+  
+</p>
+{% endblock %}

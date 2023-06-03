@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'sorl.thumbnail',
 
     "books.apps.BooksConfig",
+    "plots.apps.PlotsConfig",
     # "books"
 ]
 

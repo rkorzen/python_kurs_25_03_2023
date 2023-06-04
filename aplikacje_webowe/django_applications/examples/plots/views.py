@@ -14,6 +14,11 @@ from plots.models import Data
 
 def simple_plot(request):
 
+    request.session["my_session"] = "my_value"
+
+    print(request.COOKIES)
+    cookie_alx = request.COOKIES.get("alx")
+    print(cookie_alx, type(cookie_alx))
     x_data = [1, 2, 3, 4, 5]
     y_data = [1, 4, 9, 16, 25]
     y2_data = [2, 6, 13, 1, 45]
@@ -24,12 +29,18 @@ def simple_plot(request):
     plot_div = plot(fig, output_type='div')
 
     context = {"plot_div": plot_div}
-    return render(
+    response = render(
         request,
         "plots/plot.html",
         context
     )
-
+    response.set_cookie("alx", str("Zażółć gęślą jaźń".encode("utf-8")))
+    return response
+def simple_cookie_view(request):
+    print(request.COOKIES)
+    response = render(request, "plots/cookie.html", {})
+    response.set_cookie("my_cookie", "my_value")
+    return response
 
 def prepare_data(csv_file):
     decoded_file = csv_file.read().decode("utf-8").splitlines()
@@ -81,6 +92,8 @@ def prepare_agregated_plot(series):
     return plot_div
 
 def simple_import(request):
+    data = request.session.get("my_session")
+    print(data)
     context = {}
     if request.method == "POST":
         csv_file = request.FILES["file"]

@@ -42,10 +42,12 @@ INSTALLED_APPS = [
 
     "books.apps.BooksConfig",
     "plots.apps.PlotsConfig",
+    "przyklady.apps.PrzykladyConfig",
     # "books"
 ]
 
 MIDDLEWARE = [
+    "przyklady.middleware.simple_middleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -53,6 +55,7 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    "przyklady.middleware.SimpleMiddleware2",
 ]
 
 ROOT_URLCONF = "examples.urls"
@@ -68,6 +71,7 @@ TEMPLATES = [
                 "django.template.context_processors.request",
                 "django.contrib.auth.context_processors.auth",
                 "django.contrib.messages.context_processors.messages",
+                "przyklady.context_processors.current_date",
             ],
         },
     },
@@ -111,7 +115,7 @@ AUTH_PASSWORD_VALIDATORS = [
 
 LANGUAGE_CODE = "en-us"
 
-TIME_ZONE = "UTC"
+TIME_ZONE = "Europe/Warsaw"
 
 USE_I18N = True
 

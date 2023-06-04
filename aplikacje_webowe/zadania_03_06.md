@@ -29,3 +29,17 @@ Import danych z pliku CSV i zrobienie wykresów
 Utwórz model do którego możesz zaimportowa dane z pliku csv
 Pola to: rok, miesiac, wartosc, data_importu
 
+## Zadanie 5
+
+Formularz - forms.Form
+utwórz formularz dla ksiązki
+Zadba o to by tytuł był zapisywany z dużej litery
+Podobnie dla autora (imie i nazwisko z dużej litery)
+odpal shell i sprawdź czy działa poprawnie 
+
+form = MyForm(data={"slownik z danymi"})
+form.data
+form.is_valid()
+form.cleaned_data
+
+form.errors

@@ -1,3 +1,5 @@
+{% load tz %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,6 +8,11 @@
 </head>
 <body>
 <h1>Import danych</h1>
+
+
+<p>Data i godzina UTC: {{ current_date|timezone:"UTC" }}</p>
+<p>Data i godzina w lokalnej strefie czasowej: {{ current_date|timezone:"Europe/Warsaw"|localtime }}</p>
+
 
 <form action="" method="post" enctype="multipart/form-data">
   {% csrf_token %}

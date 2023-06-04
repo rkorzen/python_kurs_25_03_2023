@@ -1,3 +1,4 @@
 django
 sorl-thumbnail
 plotly
+crispy-bootstrap5

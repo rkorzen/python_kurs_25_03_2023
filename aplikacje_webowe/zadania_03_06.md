@@ -68,3 +68,10 @@ instance = form.save(commit=False)
 instance.author = request.user
 
 
+## zadanie 7
+
+Korzystając z Crispy Forms zmodyfikuj widok listy książek - tak by można było dodać nową książkę
+Zmodifikuj widok szczegółów ksiażki tak by można było edytować książkę
+Doda widok modyfikacji posta
+
+

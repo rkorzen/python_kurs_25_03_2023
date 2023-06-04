@@ -1,10 +1,8 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <title>Title</title>
-</head>
-<body>
+{% extends 'books/base.html' %}
+{% load crispy_forms_tags %}
+{% block title %}Lista postów{% endblock %}
+
+{% block content %}
 
 <h1>Lista postów</h1>
 
@@ -22,12 +20,13 @@
 <h2>Dodaj nowy post</h2>
 <form method="post">
   {% csrf_token %}
-  {{ form.as_p }}
+  {{ form|crispy }}
   <input type="submit" value="Dodaj post">
 </form>
 
+{% crispy form %}
+
+
 {% endif %}
 
-
-</body>
-</html>
+{% endblock %}

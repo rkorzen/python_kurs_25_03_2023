@@ -1,5 +1,9 @@
 {% extends "books/base.html" %}
+{% load crispy_forms_tags %}
 {% load thumbnail %}
+
+{% block title %}Lista książek{% endblock %}
+
 {% block content %}
 {% for book in books %}
 <p>
@@ -10,4 +14,10 @@
 
 </p>
 {% endfor %}
+
+<div>
+  {% crispy form %}
+</div>
+
+
 {% endblock %}

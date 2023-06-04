@@ -1,6 +1,10 @@
+from crispy_forms.helper import FormHelper
+from crispy_forms.layout import Submit, Layout, Fieldset
 from django import forms
-from .models import Book
 from django.forms import formset_factory
+
+from .models import Book
+
 CATEGORY_CHOICES = (
     ('fantasy', 'Fantastyka'),
     ('horror', 'Horror'),
@@ -26,6 +30,14 @@ class BookForm(forms.Form):
 
 class BookForm2(forms.ModelForm):
     category = forms.ChoiceField(label='Kategoria', required=False, choices=CATEGORY_CHOICES)
+
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+        self.helper = FormHelper()
+        self.helper.layout = Layout(
+            Fieldset("Dodawanie Posta", "title", "author", "description", "cover_image", "category"),
+            Submit("submit", "Zapisz"),
+        )
     class Meta:
         model = Book
         fields = "__all__"

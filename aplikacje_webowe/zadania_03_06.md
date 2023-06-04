@@ -43,3 +43,28 @@ form.is_valid()
 form.cleaned_data
 
 form.errors
+
+
+## Zadanie 6
+
+utwórz aplikację "blog"
+utwórz model "Post" z polami:
+author - relacja z auth.User
+title 
+content
+created_at
+updated_at
+
+utwórz migrację
+wykonaj migrację
+
+utwórz formularz dla modelu Post (forms.ModelForm)
+
+utwórz widok post_list, który wyświetli wszystkie posty i który umożliwia
+utworzenie nowego posta - w szablonei i widoku posługuj się formularzem
+
+
+instance = form.save(commit=False)
+instance.author = request.user
+
+

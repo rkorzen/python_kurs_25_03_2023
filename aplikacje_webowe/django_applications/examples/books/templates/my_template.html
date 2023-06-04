@@ -1,0 +1,47 @@
+<form method="post">
+    {% csrf_token %}
+    {{ formset.management_form }}
+
+    {% for form in formset %}
+        {{ form.as_p }}
+    {% endfor %}
+
+    <div id="empty-forms"></div>
+    <button type="button" id="add-form-button">Dodaj formularz</button>
+
+    <input type="submit" value="Save">
+</form>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const addButton = document.getElementById('add-form-button');
+    const emptyFormsContainer = document.getElementById('empty-forms');
+    const formsetPrefix = '{{ formset.prefix }}';
+
+    let formIndex = {{ formset.total_form_count }};
+    
+    const addForm = function() {
+        const formTemplate = `<div class="empty-form">
+            <input type="hidden" name="${formsetPrefix}-empty-${formIndex}-id" id="id_${formsetPrefix}-empty-${formIndex}-id">
+            {{ formset.empty_form.as_p|safe|escapejs }}
+        </div>`;
+        
+        emptyFormsContainer.insertAdjacentHTML('beforeend', formTemplate);
+
+        const formElement = document.querySelector(`#id_${formsetPrefix}-empty-${formIndex}-id`);
+        formElement.value = '';  // Set the empty form ID to an empty value
+
+        formIndex++;
+    };
+
+    addButton.addEventListener('click', function() {
+        addForm();
+    });
+
+    // Dodawanie formularzy w momencie ładowania strony
+    const existingFormsCount = {{ formset.initial_form_count }};
+    for (let i = 0; i < existingFormsCount; i++) {
+        addForm();
+    }
+});
+</script>

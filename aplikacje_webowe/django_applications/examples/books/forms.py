@@ -1,6 +1,6 @@
 from django import forms
 from .models import Book
-
+from django.forms import formset_factory
 CATEGORY_CHOICES = (
     ('fantasy', 'Fantastyka'),
     ('horror', 'Horror'),
@@ -38,3 +38,10 @@ class BookForm2(forms.ModelForm):
     def clean_author(self):
         author = self.cleaned_data['author']
         return author.title()
+
+
+class MyForm(forms.Form):
+    name = forms.CharField(label='Name')
+    email = forms.EmailField(label='Email')
+
+MyFormSet = formset_factory(MyForm, extra=2)

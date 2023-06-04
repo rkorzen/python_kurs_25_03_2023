@@ -43,7 +43,7 @@ INSTALLED_APPS = [
     "books.apps.BooksConfig",
     "plots.apps.PlotsConfig",
     "przyklady.apps.PrzykladyConfig",
-    # "books"
+    "blog.apps.BlogConfig",
 ]
 
 MIDDLEWARE = [

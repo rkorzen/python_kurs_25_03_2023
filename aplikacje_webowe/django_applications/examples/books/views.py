@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views.generic import TemplateView, ListView, CreateView, DetailView
 from books.models import Book
 from django.urls import reverse_lazy
@@ -31,6 +31,7 @@ class BookCreateView(CreateView):
     model = Book
     form_class = BookForm2
     success_url = reverse_lazy("books:list")
+
 
 class BookDetailView(DetailView):
     template_name = "books/details.html"

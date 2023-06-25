@@ -46,6 +46,7 @@ INSTALLED_APPS = [
     "plots.apps.PlotsConfig",
     "przyklady.apps.PrzykladyConfig",
     "blog.apps.BlogConfig",
+    "accounts.apps.AccountsConfig",
 ]
 
 MIDDLEWARE = [
@@ -140,3 +141,6 @@ DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
 
 CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
 CRISPY_TEMPLATE_PACK = "bootstrap5"
+
+LOGIN_REDIRECT_URL = "books:home"
+LOGOUT_REDIRECT_URL = "books:home"

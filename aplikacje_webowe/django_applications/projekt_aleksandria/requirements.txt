@@ -1,0 +1,5 @@
+django
+
+# tests
+factory_boy
+ipython

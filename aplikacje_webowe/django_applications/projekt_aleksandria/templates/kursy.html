@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Title</title>
+</head>
+<body>
+
+{% for kurs in courses %}
+  <div>
+  <h2>{{ kurs.title }}</h2>
+  <p>{{ kurs.description }}</p>
+  <p>{{ kurs.price }}</p>
+  </div>
+{% endfor %}
+
+</body>
+</html>

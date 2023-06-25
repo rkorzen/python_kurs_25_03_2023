@@ -1,0 +1,19 @@
+GET http://127.0.0.1:8000/snippets/
+
+### 
+
+GET http://127.0.0.1:8000/snippets/1/
+
+###
+
+PUT http://127.0.0.1:8000/snippets/1/
+
+Content-Type: application/json
+
+{
+    "title": "new title",
+    "code": "print('hello, world of Python')\n",
+    "linenos": false,
+    "language": "python",
+    "style": "friendly"
+}
